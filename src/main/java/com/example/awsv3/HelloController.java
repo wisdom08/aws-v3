@@ -10,6 +10,11 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 public class HelloController {
 
+    @GetMapping("/")
+    public String home() {
+        return "<h1>home page</h1>";
+    }
+
     @GetMapping("/aws/v3")
     public String hello(@RequestParam(defaultValue = "1") Integer number) {
         if (number == 1) {

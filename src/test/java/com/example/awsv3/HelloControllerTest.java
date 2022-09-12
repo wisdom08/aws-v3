@@ -16,6 +16,12 @@ public class HelloControllerTest {
     private TestRestTemplate restTemplate;
 
     @Test
+    void home_테스트() {
+        ResponseEntity<String> response = restTemplate.getForEntity("/", String.class);
+        assertEquals("<h1>home page</h1>", response.getBody());
+    }
+
+    @Test
     void hello_테스트() {
         ResponseEntity<String> response = restTemplate.getForEntity("/aws/v3", String.class);
         assertEquals("<h1>aws v3</h1>", response.getBody());
